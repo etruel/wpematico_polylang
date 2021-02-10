@@ -12,7 +12,7 @@ License: GPLv2 or later
 
 Gives support to WPeMatico for auto publishing posts with Polylang Multilanguage plugin.
 
-== Description ==
+==== Description ====
 
 THIS VERSION SHOULD BE THE RELEASE CANDIDATE. TEST IN DEVELOPMENT SITES BEFORE USE.
 Polylang allows you to create a bilingual or multilingual WordPress site. 

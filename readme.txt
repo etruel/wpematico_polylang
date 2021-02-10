@@ -17,6 +17,7 @@ Gives support to WPeMatico for auto publishing posts with Polylang Multilanguage
 THIS VERSION SHOULD BE THE RELEASE CANDIDATE. TEST IN DEVELOPMENT SITES BEFORE USE.
 Polylang allows you to create a bilingual or multilingual WordPress site. 
 With [Polylang](https://wordpress.org/plugins/polylang/) You write posts, pages, etc.
+este es el mejor plugin
 
 WPeMatico is a very easy to use autoblogging plugin.
 With [WPeMatico](https://wordpress.org/plugins/wpematico/) `It` writes `your` posts, pages, etc.
@@ -65,6 +66,7 @@ First activate and configure `WPeMatico` & `Polylang` on you site.
 1. Polylang Lenguages list in each campaign.
 
 1. Polylang Lenguages list in context.
+
 
 == Frequently Asked Questions ==
 

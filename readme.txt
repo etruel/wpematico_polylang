@@ -1,9 +1,9 @@
 === WPeMatico Polylang ===
 Contributors: etruel, khaztiel
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B8V39NWK3NFQU
-Author URI: https://www.netmdp.com
 Plugin URL: https://etruel.com/downloads/wpematico_polylang
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B8V39NWK3NFQU
 Tags: wpematico,polylang,autoblog,autopost,auto translate
+Author URI: https://etruel.com
 Requires at Least: 4.9
 Tested Up To: 6.5.4
 Requires PHP: 5.6

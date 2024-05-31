@@ -9,12 +9,12 @@ class Requirements {
 	 */
 	public function check() {
 		if(!class_exists('WPeMatico') || !function_exists('pll_current_language')) {
-			$this->display_error(__('WPeMatico and Polylang are required plugins.', 'wpematico_polylang'));
+			$this->display_error(__('WPeMatico and Polylang are required plugins.','wpematico_polylang'));
 			return false;
 		}
 
-		if('2.5' > WPEMATICO_VERSION ) {
-			$this->display_error(__('WPeMatico should be on version 2.5 or above.', 'wpematico_polylang'));
+		if('2.6' > WPEMATICO_VERSION ) {
+			$this->display_error(__('WPeMatico should be on version 2.7 or above.','wpematico_polylang'));
 			return false;
 		};
 		return true;

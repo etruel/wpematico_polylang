@@ -1,12 +1,13 @@
 <?php
 /*
   Plugin Name: WPeMatico Polylang
-  Version: 1.1.0
   Plugin URI: https://etruel.com/downloads/wpematico_polylang
   Description: WPeMatico auto publishing posts support for Polylang.
-  Author: etruel
-  Author URI: https://www.netmdp.com
-  Contributors: khaztiel
+  Author: Etruel Developments LLC
+  Author URI: https://etruel.com 
+  Version: 1.1.1
+  Text Domain: wpematico_polylang
+  Domain Path: languages
   ----
 
   Copyright 2020 Esteban Truelsegaard
@@ -30,7 +31,7 @@
 if(!defined('ABSPATH')) {
 	die('-1');
 }
-define('WPEMATICO_POLYLANG_VERSION', '1.1.0');
+define('WPEMATICO_POLYLANG_VERSION', '1.1.1');
 define('WPEMATICO_POLYLANG_MIN_PHP_VERSION', '5.6');
 
 if(!class_exists('WPeMatico_polylang')) {
@@ -168,28 +169,7 @@ if(!class_exists('WPeMatico_polylang')) {
 		 * @return      void
 		 */
 		public static function load_textdomain() {
-			// Set filter for language directory
-			$lang_dir	 = WPEMATICO_POLYLANG_DIR . '/languages/';
-			$lang_dir	 = apply_filters('wpematico_polylang_languages_directory', $lang_dir);
-
-			// Traditional WordPress plugin locale filter
-			$locale	 = apply_filters('plugin_locale', get_locale(), 'wpematico_polylang');
-			$mofile	 = sprintf('%1$s-%2$s.mo', 'wpematico_polylang', $locale);
-
-			// Setup paths to current locale file
-			$mofile_local	 = $lang_dir . $mofile;
-			$mofile_global	 = WP_LANG_DIR . '/wpematico_polylang/' . $mofile;
-
-			if(file_exists($mofile_global)) {
-				// Look in global /wp-content/languages/wpematico_polylang/ folder
-				load_textdomain('wpematico_polylang', $mofile_global);
-			}elseif(file_exists($mofile_local)) {
-				// Look in local /wp-content/plugins/wpematico_polylang/languages/ folder
-				load_textdomain('wpematico_polylang', $mofile_local);
-			}else {
-				// Load the default language files
-				load_plugin_textdomain('wpematico_polylang', false, $lang_dir);
-			}
+			load_plugin_textdomain('wpematico_polylang', false, 'wpematico_polylang/languages');
 		}
 
 	}

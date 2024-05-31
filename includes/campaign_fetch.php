@@ -51,7 +51,7 @@ class wpematico_polylangprocess {
 				}
 			}
 		} else {
-			trigger_error(__('Something\'s going wrong. The pll_set_post_language function of Polylang seems not to exist.', 'wpematico_polylang'), E_USER_WARNING);
+			trigger_error(__('Something\'s going wrong. The pll_set_post_language function of Polylang seems not to exist.','wpematico_polylang'), E_USER_WARNING);
 		}
 
 		//follow the standard rules in core class
@@ -102,7 +102,7 @@ class wpematico_polylangprocess {
 				trigger_error(sprintf(__('Inserting %s language to term %s', 'polyglot'), PLL()->model->get_language($campaign_language)->name, $term->slug), E_USER_NOTICE);
 			}
 		} else {
-			trigger_error(__('Something\'s going wrong. The pll_set_post_language function of Polylang seems not to exist.', 'wpematico_polylang'), E_USER_WARNING);
+			trigger_error(__('Something\'s going wrong. The pll_set_post_language function of Polylang seems not to exist.','wpematico_polylang'), E_USER_WARNING);
 		}
 	}
 

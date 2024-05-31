@@ -1,20 +1,20 @@
 === WPeMatico Polylang ===
-Contributors: etruel, khaztiel, cjsq24
+Contributors: etruel, khaztiel
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B8V39NWK3NFQU
 Author URI: https://www.netmdp.com
 Plugin URL: https://etruel.com/downloads/wpematico_polylang
-Tags: wpematico,polylang,autoblog,autopost,auto translate, multilanguage,wpml,translation,translator
+Tags: wpematico,polylang,autoblog,autopost,auto translate
 Requires at Least: 4.9
-Tested Up To: 5.5
+Tested Up To: 6.5.4
 Requires PHP: 5.6
-Stable tag: trunk
+Stable tag: 1.1.1
 License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Gives support to WPeMatico for auto publishing posts with Polylang Multilanguage plugin.
 
 == Description ==
 
-THIS VERSION SHOULD BE THE RELEASE CANDIDATE. TEST IN DEVELOPMENT SITES BEFORE USE.
 Polylang allows you to create a bilingual or multilingual WordPress site. 
 With [Polylang](https://wordpress.org/plugins/polylang/) You write posts, pages, etc.
 
@@ -35,7 +35,6 @@ This translation could be done by Lingotek addon of Polylang or any other transl
 
 = Requirements =
 
-- WordPress 4.9+ / Tested up to 5.4
 - Require PHP 5.6
 - [WPeMatico (2.5+)](https://www.wpematico.com)
 - [Polylang (1.8)](https://polylang.pro)
@@ -49,7 +48,7 @@ First activate and configure `WPeMatico` & `Polylang` on you site.
 
 1. Click Plugins
 2. Click Add New
-3. Search for `wpematico-polylang`
+3. Search for `wpematico_polylang`
 4. Click Install
 5. Click Install Now
 6. Click Activate Plugin
@@ -57,7 +56,7 @@ First activate and configure `WPeMatico` & `Polylang` on you site.
 
 = Manually =
 
-1. Upload `wpematico-polylang` folder to the `/wp-content/plugins/` directory
+1. Upload `wpematico_polylang` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Screenshots ==
@@ -72,6 +71,12 @@ No yet.  Be the first in the support forums.
 
 == Changelog ==
 
+= 1.1.1 - May 31, 2024 =
+- Bump to WP 6.5.4
+- Bump WPeMatico required version to 2.7
+- Fixes some PHP Deprecated and Warnings messages.
+- Fixes translations keywords.
+
 = 1.1.0 - 21 Jul 2020 =
 - Added set the language of the inserted post and also its terms.
 - Added compatibility with WPeMatico Professional Addon.
@@ -82,4 +87,4 @@ No yet.  Be the first in the support forums.
 - Initial plugin.
 
 == Upgrade Notice == 
-- Initial plugin.
+- Bump to WP 6.5.4.

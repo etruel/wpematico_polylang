@@ -1,6 +1,7 @@
 <?php
 /*
   Plugin Name: WPeMatico Polylang
+  Requires Plugins: wpematico
   Plugin URI: https://etruel.com/downloads/wpematico_polylang
   Description: WPeMatico auto publishing posts support for Polylang.
   Author: Etruel Developments LLC
@@ -33,6 +34,11 @@ if(!defined('ABSPATH')) {
 }
 define('WPEMATICO_POLYLANG_VERSION', '1.1.1');
 define('WPEMATICO_POLYLANG_MIN_PHP_VERSION', '5.6');
+
+// Minimum required WPeMatico version
+if(!defined('WPEMATICO_POLYLANG_REQ_WPEMATICO')) {
+	define('WPEMATICO_POLYLANG_REQ_WPEMATICO', '2.7.7');
+}
 
 if(!class_exists('WPeMatico_polylang')) {
 
@@ -180,7 +186,42 @@ if(!class_exists('WPeMatico_polylang')) {
 add_action('plugins_loaded', 'wpematico_polylang_load', 100);
 
 function wpematico_polylang_load() {
-//	if(is_admin()) {
+	if (!wpematico_polylang_requirements()) {
+		return;
+	}
 	WPeMatico_polylang::instance();
-//	}
 }
+
+/**
+ * Whether the running WPeMatico is new enough for this version of the add-on.
+ *
+ * WPEMATICO_POLYLANG_REQ_WPEMATICO is the single place that number lives, and it has to stay true: it is
+ * what tells a site why a feature is missing, and what lets an incompatibility be
+ * spotted from the outside.
+ *
+ * @return bool
+ */
+function wpematico_polylang_requirements() {
+	if (!class_exists('WPeMatico') || !defined('WPEMATICO_VERSION')) {
+		return true;
+	}
+	if (version_compare(WPEMATICO_VERSION, WPEMATICO_POLYLANG_REQ_WPEMATICO, '>=')) {
+		return true;
+	}
+
+	add_action('admin_notices', function () {
+		$message = sprintf(
+			/* translators: 1: add-on version, 2: minimum WPeMatico version. */
+			esc_html__('The current version WPeMatico Polylang %1$s needs WPeMatico %2$s', 'wpematico'),
+			WPEMATICO_POLYLANG_VERSION,
+			WPEMATICO_POLYLANG_REQ_WPEMATICO
+		) . '<br />' . sprintf(
+			esc_html__('Please %s to the last version ASAP to avoid errors.', 'wpematico'),
+			' <a href="' . esc_url(admin_url('plugins.php')) . '#wpematico">update "WPeMatico"</a>'
+		);
+		echo '<div id="message" class="error fade"><strong>WPeMatico Polylang:</strong><br />' . wp_kses_post($message) . '</div>';
+	});
+
+	return false;
+}
+

@@ -6,7 +6,7 @@
   Description: WPeMatico auto publishing posts support for Polylang.
   Author: Etruel Developments LLC
   Author URI: https://etruel.com 
-  Version: 1.1.1
+  Version: 1.1.2
   Text Domain: wpematico_polylang
   Domain Path: languages
   ----
@@ -32,12 +32,12 @@
 if(!defined('ABSPATH')) {
 	die('-1');
 }
-define('WPEMATICO_POLYLANG_VERSION', '1.1.1');
+define('WPEMATICO_POLYLANG_VERSION', '1.1.2');
 define('WPEMATICO_POLYLANG_MIN_PHP_VERSION', '5.6');
 
 // Minimum required WPeMatico version
 if(!defined('WPEMATICO_POLYLANG_REQ_WPEMATICO')) {
-	define('WPEMATICO_POLYLANG_REQ_WPEMATICO', '2.7.7');
+	define('WPEMATICO_POLYLANG_REQ_WPEMATICO', '2.9');
 }
 
 if(!class_exists('WPeMatico_polylang')) {

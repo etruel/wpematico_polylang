@@ -7,7 +7,7 @@ Author URI: https://etruel.com
 Requires at Least: 4.9
 Tested Up To: 6.5.4
 Requires PHP: 5.6
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,10 @@ First activate and configure `WPeMatico` & `Polylang` on you site.
 No yet.  Be the first in the support forums.
 
 == Changelog ==
+
+= 1.1.2 =
+- Requires WPeMatico 2.9 or newer.
+- Tells you so in the admin, instead of loading against a core it cannot work with.
 
 = 1.1.1 - May 31, 2024 =
 - Bump to WP 6.5.4

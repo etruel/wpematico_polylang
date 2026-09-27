@@ -12,13 +12,27 @@ if (!defined('ABSPATH')) {
 
 class wpematico_polylangprocess {
 
+	/** @var bool Whether the last item was inserted by this add-on. */
+	private static $inserted = false;
+
 	public static function hooks() {
 		add_action('Wpematico_init_fetching', array(__CLASS__, 'init_fetching'), 10, 1);
 	}
 
 	public static function init_fetching($campaign) {
 		//add_action('wpematico_inserted_post', array(__CLASS__, 'process'), 999, 3);
-		add_filter('wpematico_allow_insertpost', array(__CLASS__, 'insert_all_languages'), 999, 3);
+		add_filter('wpematico_allow_insertpost', array(__CLASS__, 'insert_all_languages'), 999, 4);
+		// Core subtracts an item whose insert was blocked, and this add-on blocks every
+		// one of them because it inserts the post itself. The filter is new in core 2.9;
+		// on 2.8 it simply never fires.
+		add_filter('wpematico_blocked_insert_count', array(__CLASS__, 'count_inserted_post'), 10, 1);
+	}
+
+	/**
+	 * The item was published, by us: it keeps the +1 core already gave it.
+	 */
+	public static function count_inserted_post($count) {
+		return self::$inserted ? 0 : $count;
 	}
 	
 	/**
@@ -29,14 +43,42 @@ class wpematico_polylangprocess {
 	 * https://maswordpress.info/questions/73613/traduccion-de-polylang-de-una-publicacion-personalizada-crea
 	 * 
 	 */
-	public static function insert_all_languages($dontallowinsert, $fetchclass, $args) {
+	public static function insert_all_languages($allow, $fetchclass, $args, $item = null) {
+		self::$inserted = false;
+
+		// apply_filters() runs every callback, it does not stop at the first false: a
+		// filter that already refused this item -- Professional's "discard if no image",
+		// Publish 2 Email, Better Excerpts -- keeps that decision here.
+		if (!$allow) {
+			return $allow;
+		}
+
 		$default_language = (function_exists('pll_default_language')) ? pll_default_language() : 'en';
 		$campaign_language = (isset($fetchclass->campaign['campaign_language']) && !empty($fetchclass->campaign['campaign_language'])) ? $fetchclass->campaign['campaign_language'] : $default_language;
 
-		remove_filter('content_save_pre', 'wp_filter_post_kses');
-//			remove_filter('content_filtered_save_pre', 'wp_filter_post_kses');
-		
+		// Only when the campaign is allowed to store unfiltered HTML, and restored right
+		// after the insert: switching kses off for the rest of the request is not this
+		// add-on's decision to make.
+		$unfiltered_html = function_exists('wpematico_campaign_allows_unfiltered_html')
+				? wpematico_campaign_allows_unfiltered_html($fetchclass->campaign)
+				: true;
+		$kses_was_active = (false !== has_filter('content_save_pre', 'wp_filter_post_kses'));
+		if ($unfiltered_html && $kses_was_active) {
+			remove_filter('content_save_pre', 'wp_filter_post_kses');
+		}
+
 		$post_id = wp_insert_post($args);
+
+		if ($unfiltered_html && $kses_was_active) {
+			add_filter('content_save_pre', 'wp_filter_post_kses');
+		}
+
+		if (is_wp_error($post_id) || empty($post_id)) {
+			trigger_error(__('Polylang could not insert the post.', 'wpematico_polylang'), E_USER_WARNING);
+			return false;
+		}
+		self::$inserted = true;
+
 		if (function_exists('pll_set_post_language')) {
 			pll_set_post_language($post_id, $campaign_language);
 			//pll_save_post_translations(['es' => $post_id]);
@@ -58,13 +100,16 @@ class wpematico_polylangprocess {
 		if ($fetchclass->cfg['woutfilter'] && $fetchclass->campaign['campaign_woutfilter']) {
 			global $wpdb, $wp_locale, $current_blog;
 			$table_name = $wpdb->prefix . "posts";
-			$blog_id = @$current_blog->blog_id;
-			$fetchclass->current_item['content'] = $truecontent;
+			$blog_id = isset($current_blog->blog_id) ? $current_blog->blog_id : 0;
+			// The content core writes here is the one it kept before stripping tags, in
+			// a local variable this method cannot reach.
 			trigger_error(__('** Adding unfiltered content **', 'wpematico'), E_USER_NOTICE);
 			$wpdb->update($table_name, array('post_content' => $fetchclass->current_item['content'], 'post_content_filtered' => $fetchclass->current_item['content']), array('ID' => $post_id));
 		}
 
-		$fetchclass->postProcessItem($post_id, $args);
+		// The feed item, never $args: postProcessItem() calls methods on it -- the images
+		// and the read-more link of Better Excerpts among them.
+		$fetchclass->postProcessItem($post_id, $item);
 
 		// If pingback/trackbacks
 		if ($fetchclass->campaign['campaign_allowpings']) {

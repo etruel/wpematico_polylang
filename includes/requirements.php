@@ -8,24 +8,30 @@ class Requirements {
 	 * @return bool
 	 */
 	public function check() {
+		// Only the decision is taken here -- this runs while the plugin loads, before
+		// init, and a __() that early makes WP 6.7 report the text domain as loaded too
+		// soon on every request. The wording happens inside the notice.
 		if(!class_exists('WPeMatico') || !function_exists('pll_current_language')) {
-			$this->display_error(__('WPeMatico and Polylang are required plugins.','wpematico_polylang'));
+			$this->display_error('missing');
 			return false;
 		}
 
-		if('2.6' > WPEMATICO_VERSION ) {
-			$this->display_error(__('WPeMatico should be on version 2.7 or above.','wpematico_polylang'));
+		// version_compare, not a string compare: '2.6' > '2.10' is true, because PHP
+		// compares those character by character.
+		if(version_compare(WPEMATICO_VERSION, '2.7', '<')) {
+			$this->display_error('outdated');
 			return false;
 		};
 		return true;
 	}
 
 	// Display message and handle errors
-	public function display_error($message) {
-//		trigger_error($message);
-
-		add_action('admin_notices', function () use ($message) {
-			printf('<div class="notice error is-dismissible"><p>%s</p></div>', $message);
+	public function display_error($reason) {
+		add_action('admin_notices', function () use ($reason) {
+			$message = ('outdated' === $reason)
+					? __('WPeMatico should be on version 2.7 or above.', 'wpematico_polylang')
+					: __('WPeMatico and Polylang are required plugins.', 'wpematico_polylang');
+			printf('<div class="notice error is-dismissible"><p>%s</p></div>', esc_html($message));
 		});
 
 		// Deactive self

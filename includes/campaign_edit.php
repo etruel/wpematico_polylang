@@ -83,10 +83,10 @@ if(!class_exists('WPePLL_Campaign_Edit')) :
 			$default_language = (function_exists('pll_default_language')) ? pll_default_language() : 'en';
 			$campaign_language = (isset($campaign_data['campaign_language']) && !empty($campaign_data['campaign_language'])) ? $campaign_data['campaign_language'] : $default_language;
 			?>
-			<span class="left"><?php _e('Select language for Posts(types).','wpematico_polylang'); ?></span>
+			<span class="left"><?php _e('Select the language for the posts this campaign creates.','wpematico_polylang'); ?></span>
 			<?php /* <span class="dashicons dashicons-warning help_tip" title="<?php echo $helptip['campaign_language']; ?>"></span> */ ?>
  			<div class="" style="background: #eef1ff none repeat scroll 0% 0%;border: 2px solid #cee1ef;padding: 0.5em;">
-				<b><?php _e('Available languages on Polylang','wpematico_polylang'); ?>:</b><br /><br />
+				<b><?php _e('Languages available in Polylang','wpematico_polylang'); ?>:</b><br /><br />
 				<?php
 					$radios			 = "";
 					if(function_exists('PLL')) {
@@ -101,7 +101,7 @@ if(!class_exists('WPePLL_Campaign_Edit')) :
 						}
 						echo $radios;
 					}else{
-						_e('Something\'s going wrong. The PLL function of Polylang seems not to exist.','wpematico_polylang');
+						_e('Something is wrong: the PLL function of Polylang does not seem to exist.','wpematico_polylang');
 					}
 					?>
 			</div>

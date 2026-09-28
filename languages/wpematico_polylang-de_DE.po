@@ -8,7 +8,7 @@ msgstr ""
 "PO-Revision-Date: 2026-09-28 00:00+0000\n"
 "Last-Translator: Etruel Developments <translations@etruel.com>\n"
 "Language-Team: Etruel Developments <translations@etruel.com>\n"
-"Language: es_ES\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,42 +24,42 @@ msgstr ""
 
 #: includes/campaign_edit.php:104
 msgid "Something is wrong: the PLL function of Polylang does not seem to exist."
-msgstr "Algo va mal: la función PLL de Polylang no parece existir."
+msgstr "Etwas ist schiefgegangen: die PLL-Funktion von Polylang scheint nicht zu existieren."
 
 #: includes/campaign_edit.php:51
 msgid "Polylang Language"
-msgstr "Idioma de Polylang"
+msgstr "Polylang-Sprache"
 
 #: includes/campaign_edit.php:86
 msgid "Select the language for the posts this campaign creates."
-msgstr "Elige el idioma de las entradas que crea esta campaña."
+msgstr "Wähle die Sprache der Beiträge, die diese Kampagne erstellt."
 
 #: includes/campaign_edit.php:89
 msgid "Languages available in Polylang"
-msgstr "Idiomas disponibles en Polylang"
+msgstr "In Polylang verfügbare Sprachen"
 
 #: includes/campaign_fetch.php:77
 msgid "Polylang could not insert the post."
-msgstr "Polylang no pudo insertar la entrada."
+msgstr "Polylang konnte den Beitrag nicht einfügen."
 
 #: includes/campaign_fetch.php:96 includes/campaign_fetch.php:150
 msgid "Something is wrong: the pll_set_post_language function of Polylang does not seem to exist."
-msgstr "Algo va mal: la función pll_set_post_language de Polylang no parece existir."
+msgstr "Etwas ist schiefgegangen: die Funktion pll_set_post_language von Polylang scheint nicht zu existieren."
 
 #. translators: %s: minimum WPeMatico version.
 #: includes/requirements.php:34
 msgid "WPeMatico should be on version %s or above."
-msgstr "WPeMatico debería estar en la versión %s o posterior."
+msgstr "WPeMatico sollte in Version %s oder neuer vorliegen."
 
 #: includes/requirements.php:37
 msgid "WPeMatico and Polylang are required plugins."
-msgstr "WPeMatico y Polylang son plugins necesarios."
+msgstr "WPeMatico und Polylang sind erforderliche Plugins."
 
 #. translators: 1: add-on version, 2: minimum WPeMatico version.
 #: wpematico_polylang.php:217
 msgid "The current version of WPeMatico Polylang %1$s needs WPeMatico %2$s"
-msgstr "La versión actual de WPeMatico Polylang %1$s necesita WPeMatico %2$s"
+msgstr "Die aktuelle Version von WPeMatico Polylang %1$s benötigt WPeMatico %2$s"
 
 #: wpematico_polylang.php:221
 msgid "Please %s to the latest version as soon as possible to avoid errors."
-msgstr "Por favor, %s a la última versión cuanto antes para evitar errores."
+msgstr "Bitte %s so bald wie möglich auf die neueste Version, um Fehler zu vermeiden."

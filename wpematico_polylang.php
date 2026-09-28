@@ -175,7 +175,9 @@ if(!class_exists('WPeMatico_polylang')) {
 		 * @return      void
 		 */
 		public static function load_textdomain() {
-			load_plugin_textdomain('wpematico_polylang', false, 'wpematico_polylang/languages');
+			// Relative to WP_PLUGIN_DIR, and derived from the plugin's own path: a hardcoded
+			// folder name misses the translations as soon as the directory is named otherwise.
+			load_plugin_textdomain('wpematico_polylang', false, dirname(plugin_basename(WPEMATICO_POLYLANG_MAIN_FILE_DIR)) . '/languages');
 		}
 
 	}
@@ -212,11 +214,11 @@ function wpematico_polylang_requirements() {
 	add_action('admin_notices', function () {
 		$message = sprintf(
 			/* translators: 1: add-on version, 2: minimum WPeMatico version. */
-			esc_html__('The current version WPeMatico Polylang %1$s needs WPeMatico %2$s', 'wpematico'),
+			esc_html__('The current version of WPeMatico Polylang %1$s needs WPeMatico %2$s', 'wpematico_polylang'),
 			WPEMATICO_POLYLANG_VERSION,
 			WPEMATICO_POLYLANG_REQ_WPEMATICO
 		) . '<br />' . sprintf(
-			esc_html__('Please %s to the last version ASAP to avoid errors.', 'wpematico'),
+			esc_html__('Please %s to the latest version as soon as possible to avoid errors.', 'wpematico_polylang'),
 			' <a href="' . esc_url(admin_url('plugins.php')) . '#wpematico">update "WPeMatico"</a>'
 		);
 		echo '<div id="message" class="error fade"><strong>WPeMatico Polylang:</strong><br />' . wp_kses_post($message) . '</div>';

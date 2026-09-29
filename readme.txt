@@ -4,8 +4,8 @@ Plugin URL: https://etruel.com/downloads/wpematico_polylang
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B8V39NWK3NFQU
 Tags: wpematico,polylang,autoblog,autopost,auto translate
 Author URI: https://etruel.com
-Requires at Least: 4.9
-Tested Up To: 6.5.4
+Requires at least: 4.9
+Tested up to: 7.1
 Requires PHP: 5.6
 Stable tag: 1.1.2
 License: GPLv2 or later

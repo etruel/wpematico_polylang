@@ -71,8 +71,8 @@ No yet.  Be the first in the support forums.
 
 == Changelog ==
 
-= 1.1.2 =
-- Requires WPeMatico 2.9 or newer.
+= 1.1.2 Sep 30, 2026 =
+- Works on WPeMatico 2.8.27 and on 2.9. Update this add-on before moving WPeMatico to 2.9, which asks for this version.
 - Tells you so in the admin, instead of loading against a core it cannot work with.
 
 = 1.1.1 - May 31, 2024 =

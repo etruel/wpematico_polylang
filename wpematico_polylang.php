@@ -37,7 +37,7 @@ define('WPEMATICO_POLYLANG_MIN_PHP_VERSION', '5.6');
 
 // Minimum required WPeMatico version
 if(!defined('WPEMATICO_POLYLANG_REQ_WPEMATICO')) {
-	define('WPEMATICO_POLYLANG_REQ_WPEMATICO', '2.9');
+	define('WPEMATICO_POLYLANG_REQ_WPEMATICO', '2.8.27');
 }
 
 if(!class_exists('WPeMatico_polylang')) {

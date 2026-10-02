@@ -2,7 +2,7 @@
     Style on campaign editing screen for WPeMatico Polylang
     Author     : esteban
 */
-#polylang-box h2.hndle {
+#polylang-box .postbox-header {
     background: #6cc179;
 }
 #polylang-box h2.hndle span{

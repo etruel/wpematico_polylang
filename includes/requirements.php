@@ -31,10 +31,10 @@ class Requirements {
 			$message = ('outdated' === $reason)
 					? sprintf(
 							/* translators: %s: minimum WPeMatico version. */
-							__('WPeMatico should be on version %s or above.', 'wpematico_polylang'),
+							__('WPeMatico should be on version %s or above.', 'wpematico-polylang'),
 							WPEMATICO_POLYLANG_REQ_WPEMATICO
 					)
-					: __('WPeMatico and Polylang are required plugins.', 'wpematico_polylang');
+					: __('WPeMatico and Polylang are required plugins.', 'wpematico-polylang');
 			printf('<div class="notice error is-dismissible"><p>%s</p></div>', esc_html($message));
 		});
 

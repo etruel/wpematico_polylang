@@ -74,7 +74,7 @@ class wpematico_polylangprocess {
 		}
 
 		if (is_wp_error($post_id) || empty($post_id)) {
-			trigger_error(__('Polylang could not insert the post.', 'wpematico_polylang'), E_USER_WARNING);
+			trigger_error(__('Polylang could not insert the post.', 'wpematico-polylang'), E_USER_WARNING);
 			return false;
 		}
 		self::$inserted = true;
@@ -82,18 +82,18 @@ class wpematico_polylangprocess {
 		if (function_exists('pll_set_post_language')) {
 			pll_set_post_language($post_id, $campaign_language);
 			//pll_save_post_translations(['es' => $post_id]);
-			trigger_error('<b>' . sprintf(__('Polylang inserting post to %s language', 'polyglot'), PLL()->model->get_language($campaign_language)->name) . '</b>', E_USER_NOTICE);
+			trigger_error('<b>' . sprintf(__('Polylang inserting post to %s language', 'wpematico-polylang'), PLL()->model->get_language($campaign_language)->name) . '</b>', E_USER_NOTICE);
 
 			if (function_exists('pll_set_term_language')) {
 				$taxonomies = get_post_taxonomies($post_id);
 				$terms = wp_get_object_terms($post_id, $taxonomies);
 				foreach ($terms as $term) {
 					pll_set_term_language($term->term_id, $campaign_language);
-					trigger_error(sprintf(__('Inserting %s language to term %s', 'polyglot'), PLL()->model->get_language($campaign_language)->name, $term->slug), E_USER_NOTICE);
+					trigger_error(sprintf(__('Inserting %s language to term %s', 'wpematico-polylang'), PLL()->model->get_language($campaign_language)->name, $term->slug), E_USER_NOTICE);
 				}
 			}
 		} else {
-			trigger_error(__('Something is wrong: the pll_set_post_language function of Polylang does not seem to exist.','wpematico_polylang'), E_USER_WARNING);
+			trigger_error(__('Something is wrong: the pll_set_post_language function of Polylang does not seem to exist.','wpematico-polylang'), E_USER_WARNING);
 		}
 
 		//follow the standard rules in core class
@@ -103,7 +103,7 @@ class wpematico_polylangprocess {
 			$blog_id = isset($current_blog->blog_id) ? $current_blog->blog_id : 0;
 			// The content core writes here is the one it kept before stripping tags, in
 			// a local variable this method cannot reach.
-			trigger_error(__('** Adding unfiltered content **', 'wpematico'), E_USER_NOTICE);
+			trigger_error(__('** Adding unfiltered content **', 'wpematico-polylang'), E_USER_NOTICE);
 			$wpdb->update($table_name, array('post_content' => $fetchclass->current_item['content'], 'post_content_filtered' => $fetchclass->current_item['content']), array('ID' => $post_id));
 		}
 
@@ -113,7 +113,7 @@ class wpematico_polylangprocess {
 
 		// If pingback/trackbacks
 		if ($fetchclass->campaign['campaign_allowpings']) {
-			trigger_error(__('Processing item pingbacks', 'wpematico'), E_USER_NOTICE);
+			trigger_error(__('Processing item pingbacks', 'wpematico-polylang'), E_USER_NOTICE);
 			require_once(ABSPATH . WPINC . '/comment.php');
 			pingback($fetchclass->current_item['content'], $post_id);
 		}
@@ -132,7 +132,7 @@ class wpematico_polylangprocess {
 		$default_language = (function_exists('pll_default_language')) ? pll_default_language() : 'en';
 		$campaign_language = (isset($campaign['campaign_language']) && !empty($campaign['campaign_language'])) ? $campaign['campaign_language'] : $default_language;
 
-		trigger_error('<b>' . sprintf(__('Polylang inserting post to %s language', 'polyglot'), PLL()->model->get_language($campaign_language)->name) . '</b>', E_USER_NOTICE);
+		trigger_error('<b>' . sprintf(__('Polylang inserting post to %s language', 'wpematico-polylang'), PLL()->model->get_language($campaign_language)->name) . '</b>', E_USER_NOTICE);
 
 		if (function_exists('pll_set_post_language')) {
 			pll_set_post_language($post_id, $campaign_language);
@@ -144,10 +144,10 @@ class wpematico_polylangprocess {
 //                    wp_set_post_terms($post_id, $translation, $term->taxonomy);
 //                }
 				pll_set_term_language($term->term_id, $campaign_language);
-				trigger_error(sprintf(__('Inserting %s language to term %s', 'polyglot'), PLL()->model->get_language($campaign_language)->name, $term->slug), E_USER_NOTICE);
+				trigger_error(sprintf(__('Inserting %s language to term %s', 'wpematico-polylang'), PLL()->model->get_language($campaign_language)->name, $term->slug), E_USER_NOTICE);
 			}
 		} else {
-			trigger_error(__('Something is wrong: the pll_set_post_language function of Polylang does not seem to exist.','wpematico_polylang'), E_USER_WARNING);
+			trigger_error(__('Something is wrong: the pll_set_post_language function of Polylang does not seem to exist.','wpematico-polylang'), E_USER_WARNING);
 		}
 	}
 

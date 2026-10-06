@@ -7,7 +7,7 @@ Author URI: https://etruel.com
 Requires at least: 4.9
 Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,10 @@ First activate and configure `WPeMatico` & `Polylang` on you site.
 No yet.  Be the first in the support forums.
 
 == Changelog ==
+
+= 1.1.3 Oct 8, 2026 =
+- Translations arrive through the WordPress.org language packs, in the 22 languages the add-on ships with.
+- The lines the add-on writes to the campaign log are translated too.
 
 = 1.1.2 Sep 30, 2026 =
 - Works on WPeMatico 2.8.27 and on 2.9. Update this add-on before moving WPeMatico to 2.9, which asks for this version.

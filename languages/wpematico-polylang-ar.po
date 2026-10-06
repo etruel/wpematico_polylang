@@ -1,0 +1,87 @@
+# Copyright (C) 2026 etruel Developments
+# This file is distributed under the same license as the WPeMatico Polylang plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WPeMatico Polylang 1.1.3\n"
+"Report-Msgid-Bugs-To: https://etruel.com/my-account/support/\n"
+"POT-Creation-Date: 2026-10-06 16:23+0000\n"
+"PO-Revision-Date: 2026-09-28 00:00+0000\n"
+"Last-Translator: Etruel Developments <translations@etruel.com>\n"
+"Language-Team: Etruel Developments <translations@etruel.com>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: lang\n"
+"X-Poedit-SearchPathExcluded-1: tools\n"
+"X-Domain: wpematico-polylang\n"
+
+#: includes/campaign_edit.php:104
+msgid ""
+"Something is wrong: the PLL function of Polylang does not seem to exist."
+msgstr "هناك خطأ ما: دالة PLL في Polylang لا يبدو أنها موجودة."
+
+#: includes/campaign_edit.php:51
+msgid "Polylang Language"
+msgstr "لغة Polylang"
+
+#: includes/campaign_edit.php:86
+msgid "Select the language for the posts this campaign creates."
+msgstr "اختر لغة المقالات التي تنشئها هذه الحملة."
+
+#: includes/campaign_edit.php:89
+msgid "Languages available in Polylang"
+msgstr "اللغات المتاحة في Polylang"
+
+#: includes/campaign_fetch.php:106
+msgid "** Adding unfiltered content **"
+msgstr "** إضافة محتوى غير مُرشَّح **"
+
+#: includes/campaign_fetch.php:116
+msgid "Processing item pingbacks"
+msgstr "معالجة تنبيهات العنصر"
+
+#: includes/campaign_fetch.php:77
+msgid "Polylang could not insert the post."
+msgstr "لم يتمكن Polylang من إدراج المقالة."
+
+#: includes/campaign_fetch.php:85 includes/campaign_fetch.php:135
+msgid "Polylang inserting post to %s language"
+msgstr "Polylang يُدرج المقالة باللغة %s"
+
+#: includes/campaign_fetch.php:92 includes/campaign_fetch.php:147
+msgid "Inserting %s language to term %s"
+msgstr "تعيين اللغة %s للمصطلح %s"
+
+#: includes/campaign_fetch.php:96 includes/campaign_fetch.php:150
+msgid ""
+"Something is wrong: the pll_set_post_language function of Polylang does not "
+"seem to exist."
+msgstr ""
+"هناك خطأ ما: دالة pll_set_post_language في Polylang لا يبدو أنها موجودة."
+
+#. translators: %s: minimum WPeMatico version.
+#: includes/requirements.php:34
+msgid "WPeMatico should be on version %s or above."
+msgstr "ينبغي أن يكون WPeMatico بالنسخة %s أو أحدث."
+
+#: includes/requirements.php:37
+msgid "WPeMatico and Polylang are required plugins."
+msgstr "WPeMatico وPolylang إضافتان مطلوبتان."
+
+#. translators: 1: add-on version, 2: minimum WPeMatico version.
+#: wpematico_polylang.php:217
+msgid "The current version of WPeMatico Polylang %1$s needs WPeMatico %2$s"
+msgstr "النسخة الحالية WPeMatico Polylang %1$s تحتاج إلى WPeMatico %2$s"
+
+#: wpematico_polylang.php:221
+msgid "Please %s to the latest version as soon as possible to avoid errors."
+msgstr "يُرجى %s إلى آخر نسخة بأسرع وقت لتجنّب الأخطاء."

@@ -71,7 +71,7 @@ No yet.  Be the first in the support forums.
 
 == Changelog ==
 
-= 1.1.3 Oct 8, 2026 =
+= 1.1.3 Oct 14, 2026 =
 - Translations arrive through the WordPress.org language packs, in the 22 languages the add-on ships with.
 - The lines the add-on writes to the campaign log are translated too.
 

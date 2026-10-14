@@ -42,7 +42,7 @@ msgstr "Idiomas disponibles en Polylang"
 
 #: includes/campaign_fetch.php:106
 msgid "** Adding unfiltered content **"
-msgstr "** Agregando contenido sin filtrar **"
+msgstr "** Añadiendo contenido sin filtrar **"
 
 #: includes/campaign_fetch.php:116
 msgid "Processing item pingbacks"
